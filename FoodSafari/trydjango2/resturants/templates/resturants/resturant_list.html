@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'resturants/resturant_list.css' %}">
+<hr>
+<div class="container">
+  <div class="row-fluid">
+    <div class="span10 offsetHalf">
+
+		<i class="icon-screenshot icon-5x" style="color:#ee1111;"></i>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+
+      	<div class="span5 offsetHalf block">
+          <div class="pull-center"><br>
+              <h1><font color="#ffffff"><center><h1><b><font size="7">Veg Resturant's</font></b></h1></center></font></h1>
+            <b>{% for resturant in object_list %}
+              {% if resturant.category == 'veg' %}
+                <li style="list-style-type:none;">
+                    <a href="{% url 'resturants:detail' slug=resturant.slug %}"><font color="#ffffff"><font size="3"><font size="4"><center>{{ resturant.name }}</center></font></font></font></a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            </b></div>
+      	</div>
+<br><br><br><br><br><br>
+      	<div class="span5 offsetHalf block">
+          <div class="pull-center"><br>
+              <h1><font color="#ffffff"><center><h1><b><font size="7">Non-Veg Resturant's</font></b></h1></center></font></h1>
+            <b>{% for resturant in object_list %}
+              {% if resturant.category == 'non-veg' %}
+                <li style="list-style-type:none;">
+                    <a href="{% url 'resturants:detail' slug=resturant.slug %}"><font color="#ffffff"><font size="3"><font size="4"><center>{{ resturant.name }}</center></font></font></font></a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            </b></div>
+      	</div>
+
+</div><!---/cont---->
+
+
+
+    </div>
+
+  </div>
+
+</div><!---/cont---->
+
+<br><br><br><br><br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/xE7dmuiQbyU"></iframe>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/XSDv_XL7lI8"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br><br><br>
+
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'resturants/resturant_list.css' %}">
+
+<hr>
+
+<div class="container">
+  <div class="row-fluid">
+    <div class="span10 offsetHalf">
+
+		<i class="icon-screenshot icon-5x" style="color:#ee1111;"></i>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+
+      	<div class="span5 offsetHalf block">
+          <div class="pull-center"><br><br>
+              <h1><font color="#ffffff"><center><h1><b><font size="7">Resturant's</font></b></h1></center></font></h1><br><br><br>
+              <b><font size="4"><h1><b>{{ resturantlocation.name }}</b><small> <b>{{ resturantlocation.category }}</b></small></h1>
+                <p>{{ resturantlocation.location }}</p><br>
+              <p>Menus: <br><i>{{ resturantlocation.menus }}</i></p>
+                <p><i>Added to database on:</i> {{ resturantlocation.timestamp|date }} || <i>Updated:</i> {{ resturantlocation.updated|timesince }} ago</p>
+              </font></b>
+          </div>
+      	</div>
+
+</div><!---/cont---->
+
+
+{% endblock %}
+
+

@@ -1,0 +1,52 @@
+
+{% extends "base.html" %}
+{% block content %}
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'orderitem/order.css' %}">
+<hr>
+
+<div class="container">
+  <div class="row-fluid">
+    <div class="span10 offsetHalf">
+
+		<i class="icon-screenshot icon-5x" style="color:#ee1111;"></i>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+ <h1><font color="#ffffff"><center><h1><b><font size="7">Add Your Ordered</font></b></h1></center></font></h1>
+      	<div class="span5 offsetHalf block">
+          <div class="pull-center"><br><br>
+                <form method='POST'>
+                    <font size="4"><b><center>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <button type="submit">Save</button></center>
+
+                        {% if form_error %}
+
+                            {{ form_error }}
+                        {% endif %}
+                    </b></font>
+                     </form>
+          </div>
+      	</div>
+      <br>
+      <div class="span5 offsetHalf block">
+          <div class="pull-center"><br><br><br>
+              <h1><font color="#ffffff"><center><h1><b><font size="7">How to Order</font></b></h1></center></font></h1><br>
+              <b><font color="#ffffff"><font size="4">Ordering food using our service is very easy! Follow the steps mentioned below to place your order with us.<br>
+              Step 1: Find a restaurant of your choice from here. There are hundreds of popular restaurants to choose from.<br>
+              Step 2: Select the foods of your choice from the selected restaurant's menu. The menu and price listed on our website is exactly the same as the restaurant's table menu.<br>
+                  Step 3: Fill up the delivery details i.e. your detailed address, contact no. for delivery and confirm your order. We’ll deliver your order at your place, and you’ll pay us in cash upon delivery.<br></font></font>
+              </b></div>
+      	</div>
+
+</div><!---/cont---->
+
+</div>
+
+<br><br><br>
+{% endblock %}
+

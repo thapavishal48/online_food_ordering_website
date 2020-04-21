@@ -1,0 +1,23 @@
+<!--it works as inheriting the specific parts of a template-->
+{% extends "base.html" %}
+
+<!--block is used for overriding specific parts of a template.
+In this case, you have a block named content and this is supposed to be overridden by children that inherit from this template.-->
+{% block content %}
+<!-- jinja templating............use ctrl + / to commit-->
+{% if items %}
+    <h2>The resturant name is {{ resturant_name }}</h2>
+    The items are <br>
+    {% for item in items %}
+        <li>{{ item }}</li>  <!--   #li is list tag-->
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
+
+{% block content2 %}
+<p> This is replacing the content on base.html content2 block.</p>
+{% endblock %}
+
+<!--snippets: they are the small code that are made to make bigger-->
+

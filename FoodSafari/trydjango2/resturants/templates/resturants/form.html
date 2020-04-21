@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'resturants/resturant_list.css' %}">
+<hr>
+<div class="container">
+  <div class="row-fluid">
+    <div class="span10 offsetHalf">
+
+		<i class="icon-screenshot icon-5x" style="color:#ee1111;"></i>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+
+      	<div class="span5 offsetHalf block">
+          <div class="pull-center">
+              <h1><font color="#ffffff"><h1><b><font size="8">Add Resturant's</font></b></h1></font></h1>
+                <form method='POST'>
+
+                    {% csrf_token %}
+                   {{ form.as_p }}
+
+                    <button type="submit">Save</button>
+
+                    {% if form_error %}
+                        {{ form_error }}
+                    {% endif %}
+
+
+                </form>
+          </div>
+      	</div>
+
+</div><!---/cont---->
+
+{% endblock %}
+</div>

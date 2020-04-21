@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'fooditem/food_list.css' %}">
+ <br><br><br><br><h1><font color="#ffffff"><center><h1><b><font size="7">Menus's</font></b></h1></center></font></h1><br>
+               <br><br><h1>{{ object.name }} <small>{{ object.resturant }}</small></h1>
+                <i><b><font size="4"><br><h3>Contents</h3>
+                {% if object.contents %}
+                    {% for item in object.get_contents %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                {% endif %}<br>
+                    <h3>Excludes</h3>
+                {% if object.excludes %}
+                    {% for item in object.get_excludes %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                {% endif %}<br>
+                <img src="{{ fooditem.image.url }}" width="240"><br><br>
+                <p><i>Added to database on:</i> {{ object.timestamp|date }} || <i>Updated:</i> {{ object.updated|timesince }} ago</p>
+                </font></b></i>
+
+<br><br><br>
+{% endblock %}
